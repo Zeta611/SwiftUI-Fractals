@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Carpet: Fractal {
     let step: Int
-    let degrees: Double
+    let angle: Double
 
     static var name: String { "Sierpiński Carpet" }
 
-    private var child: some View { Carpet(step: step - 1, degrees: degrees) }
+    private var child: some View { Carpet(step: step - 1, angle: angle) }
 
     private var defaultRow: some View {
         HStack(spacing: 0) { child; child; child }
@@ -39,8 +39,8 @@ struct Carpet: Fractal {
             .aspectRatio(contentMode: .fit)
             .asAnyView()
         } else {
-            return Polygon(sides: 4)
-                .rotationEffect(.degrees(45 + degrees))
+            return RegularPolygon(sides: 4)
+                .rotationEffect(.radians(.pi / 4 + angle))
                 .aspectRatio(1, contentMode: .fit)
                 .asAnyView()
         }
@@ -49,6 +49,6 @@ struct Carpet: Fractal {
 
 struct Carpet_Previews: PreviewProvider {
     static var previews: some View {
-        Carpet(step: 2, degrees: 0)
+        Carpet(step: 2, angle: 0)
     }
 }

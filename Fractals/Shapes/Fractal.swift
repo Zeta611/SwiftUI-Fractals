@@ -10,5 +10,5 @@ import SwiftUI
 
 protocol Fractal: View {
     static var name: String { get }
-    init(step: Int, degrees: Double)
+    init(step: Int, angle: Double)
 }

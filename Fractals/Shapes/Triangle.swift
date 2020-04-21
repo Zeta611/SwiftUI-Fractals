@@ -10,11 +10,11 @@ import SwiftUI
 
 struct Triangle: Fractal {
     let step: Int
-    let degrees: Double
+    let angle: Double
 
     static var name: String { "Sierpiński Triangle" }
 
-    private var child: some View { Triangle(step: step - 1, degrees: degrees) }
+    private var child: some View { Triangle(step: step - 1, angle: angle) }
 
     private var topRow: some View {
         HStack(spacing: 0) { child }
@@ -37,8 +37,8 @@ struct Triangle: Fractal {
             .aspectRatio(contentMode: .fit)
             .asAnyView()
         } else {
-            return Polygon(sides: 3)
-                .rotationEffect(.degrees(30 + degrees))
+            return RegularPolygon(sides: 3)
+                .rotationEffect(.radians(.pi / 6 + angle))
                 .aspectRatio(1, contentMode: .fit)
                 .asAnyView()
         }
@@ -47,6 +47,6 @@ struct Triangle: Fractal {
 
 struct Triangle_Previews: PreviewProvider {
     static var previews: some View {
-        Triangle(step: 2, degrees: 0)
+        Triangle(step: 2, angle: 0)
     }
 }

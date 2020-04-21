@@ -13,18 +13,36 @@ struct ContentView: View {
         NavigationView {
             List {
                 NavigationLink(
-                    destination: Demonstration<Triangle>(maxStep: 8)
+                    destination: Demonstration<Triangle>(
+                        maxStep: 8,
+                        animationMaxStep: 6
+                    )
                 ) {
                     Spacer()
-                    Triangle(step: 2, degrees: 0)
+                    Triangle(step: 2, angle: 0)
                     Spacer()
                 }
 
                 NavigationLink(
-                    destination: Demonstration<Carpet>(maxStep: 5)
+                    destination: Demonstration<Carpet>(
+                        maxStep: 4,
+                        animationMaxStep: 3
+                    )
                 ) {
                     Spacer()
-                    Carpet(step: 2, degrees: 0)
+                    Carpet(step: 2, angle: 0)
+                    Spacer()
+                }
+
+                NavigationLink(
+                    destination: Demonstration<Tree>(
+                        maxStep: 10,
+                        animationMaxStep: 6,
+                        maxAngle: .pi * 2 / 3
+                    )
+                ) {
+                    Spacer()
+                    Tree(step: 4, angle: .pi * 2 / 3)
                     Spacer()
                 }
             }
