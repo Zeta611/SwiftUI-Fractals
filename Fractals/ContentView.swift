@@ -20,20 +20,20 @@ struct ContentView: View {
                     Carpet(step: step, degrees: degrees)
                         .drawingGroup()
 
-                    Triangle(step: step, degrees: degrees)
-                        .drawingGroup()
+//                    Triangle(step: step, degrees: degrees)
+//                        .drawingGroup()
                 }
             } else {
                 VStack {
                     Carpet(step: step, degrees: degrees)
                         .drawingGroup()
 
-                    Triangle(step: step, degrees: degrees)
-                        .drawingGroup()
+//                    Triangle(step: step, degrees: degrees)
+//                        .drawingGroup()
                 }
             }
 
-            Stepper("Step \(step)", value: $step, in: 0...4)
+            Stepper("Step \(step)", value: $step, in: 0...8)
                 .fixedSize()
 
             Slider(value: $degrees, in: 0.0...360.0)

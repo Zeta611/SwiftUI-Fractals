@@ -18,12 +18,8 @@ struct Triangle: View {
         HStack(spacing: 0) { child }
     }
 
-    private var middleRow: some View {
-        HStack(spacing: 0) { child; child }
-    }
-
     private var bottomRow: some View {
-        HStack(spacing: 0) { child; child; child }
+        HStack(spacing: 0) { child; child }
     }
 
     var body: some View {
@@ -31,9 +27,7 @@ struct Triangle: View {
             return GeometryReader { geometry in
                 VStack(spacing: 0) {
                     self.topRow
-                        .frame(width: geometry.size.width / 3)
-                    self.middleRow
-                        .frame(width: geometry.size.width / 1.5)
+                        .frame(width: geometry.size.width / 2)
                     self.bottomRow
                         .frame(width: geometry.size.width)
                 }

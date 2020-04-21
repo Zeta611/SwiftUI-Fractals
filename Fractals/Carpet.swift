@@ -18,17 +18,23 @@ struct Carpet: View {
         HStack(spacing: 0) { child; child; child }
     }
 
-    private var middleRow: some View {
-        HStack(spacing: 0) { child; child.hidden(); child }
+    private func middleRow(width: CGFloat) -> some View {
+        HStack(spacing: 0) { child; Spacer(minLength: width); child }
     }
 
     var body: some View {
         if step > 0 {
-            return VStack(spacing: 0) {
-                defaultRow
-                middleRow
-                defaultRow
+            return GeometryReader { geometry in
+                VStack(spacing: 0) {
+                    self.defaultRow
+                        .frame(width: geometry.size.width)
+                    self.middleRow(width: geometry.size.width / 3)
+                        .frame(width: geometry.size.width)
+                    self.defaultRow
+                        .frame(width: geometry.size.width)
+                }
             }
+            .aspectRatio(contentMode: .fit)
             .asAnyView()
         } else {
             return Polygon(sides: 4)
