@@ -8,9 +8,11 @@
 
 import SwiftUI
 
-struct Carpet: View {
+struct Carpet: Fractal {
     let step: Int
     let degrees: Double
+
+    static var name: String { "Sierpiński Carpet" }
 
     private var child: some View { Carpet(step: step - 1, degrees: degrees) }
 

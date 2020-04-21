@@ -11,7 +11,6 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    private var orientation = Orientation()
 
     func scene(
         _ scene: UIScene,
@@ -19,7 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         let contentView = ContentView()
-            .environmentObject(orientation)
 
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
@@ -29,15 +27,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
-    }
-
-    func windowScene(
-        _ windowScene: UIWindowScene,
-        didUpdate previousCoordinateSpace: UICoordinateSpace,
-        interfaceOrientation previousInterfaceOrientation: UIInterfaceOrientation,
-        traitCollection previousTraitCollection: UITraitCollection
-    ) {
-        orientation.isLandScape = windowScene.interfaceOrientation.isLandscape
     }
 }
 

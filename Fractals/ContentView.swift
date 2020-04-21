@@ -9,35 +9,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject private var orientation: Orientation
-    @State private var step = 2
-    @State private var degrees = 0.0
-
     var body: some View {
-        VStack {
-            if orientation.isLandScape {
-                HStack {
-                    Carpet(step: step, degrees: degrees)
-                        .drawingGroup()
-
-//                    Triangle(step: step, degrees: degrees)
-//                        .drawingGroup()
+        NavigationView {
+            List {
+                NavigationLink(
+                    destination: Demonstration<Triangle>(maxStep: 8)
+                ) {
+                    Spacer()
+                    Triangle(step: 2, degrees: 0)
+                    Spacer()
                 }
-            } else {
-                VStack {
-                    Carpet(step: step, degrees: degrees)
-                        .drawingGroup()
 
-//                    Triangle(step: step, degrees: degrees)
-//                        .drawingGroup()
+                NavigationLink(
+                    destination: Demonstration<Carpet>(maxStep: 5)
+                ) {
+                    Spacer()
+                    Carpet(step: 2, degrees: 0)
+                    Spacer()
                 }
             }
+            .navigationBarTitle("Fractal Shapes")
 
-            Stepper("Step \(step)", value: $step, in: 0...8)
-                .fixedSize()
-
-            Slider(value: $degrees, in: 0.0...360.0)
-                .padding(.horizontal)
+            // Initial detail view for iPadOS & macOS
+            Demonstration<Triangle>(maxStep: 8)
         }
     }
 }

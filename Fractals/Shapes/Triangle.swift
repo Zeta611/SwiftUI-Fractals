@@ -8,9 +8,11 @@
 
 import SwiftUI
 
-struct Triangle: View {
+struct Triangle: Fractal {
     let step: Int
     let degrees: Double
+
+    static var name: String { "Sierpiński Triangle" }
 
     private var child: some View { Triangle(step: step - 1, degrees: degrees) }
 
