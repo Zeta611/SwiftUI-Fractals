@@ -5,7 +5,7 @@ Note that animations are disabled for large `step` values; otherwise SwiftUI wil
 
 ## Screenshot
 ![ipad screenshot](ipad.gif)
-<img src="iphone.png" alt="iphone screenshot" style="zoom:25%;" />
+<img src="iphone.png" alt="iphone screenshot" height="559"/>
 
 ## LICENSE
 [MIT](LICENSE)
