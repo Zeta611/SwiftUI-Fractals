@@ -1,11 +1,11 @@
-This app demonstrates the Sierpinksi Carpet & the Sierpinksi Triangle using
+This app demonstrates the Sierpinksi carpet & triangle, and a fractal tree using
 SwiftUI.
 
-Note that `step == 4` will take a few seconds to render, as SwiftUI is not
-meant for recursive layout. :)
+Note that animations are disabled for large `step` values; otherwise SwiftUI will give up rendering.
 
 ## Screenshot
-![screenshot](screenshot.PNG)
+![ipad screenshot](ipad.gif)
+<img src="iphone.png" alt="iphone screenshot" style="zoom:25%;" />
 
 ## LICENSE
 [MIT](LICENSE)
