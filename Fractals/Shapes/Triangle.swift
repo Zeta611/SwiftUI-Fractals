@@ -16,10 +16,6 @@ struct Triangle: Fractal {
 
     private var child: some View { Triangle(step: step - 1, angle: angle) }
 
-    private var topRow: some View {
-        HStack(spacing: 0) { child }
-    }
-
     private var bottomRow: some View {
         HStack(spacing: 0) { child; child }
     }
@@ -28,7 +24,7 @@ struct Triangle: Fractal {
         if step > 0 {
             return GeometryReader { geometry in
                 VStack(spacing: 0) {
-                    self.topRow
+                    self.child
                         .frame(width: geometry.size.width / 2)
                     self.bottomRow
                         .frame(width: geometry.size.width)
@@ -39,7 +35,7 @@ struct Triangle: Fractal {
         } else {
             return RegularPolygon(sides: 3)
                 .rotationEffect(.radians(.pi / 6 + angle))
-                .aspectRatio(1, contentMode: .fit)
+                .aspectRatio(contentMode: .fit)
                 .asAnyView()
         }
     }

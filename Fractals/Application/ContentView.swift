@@ -49,7 +49,10 @@ struct ContentView: View {
             .navigationBarTitle("Fractal Shapes")
 
             // Initial detail view for iPadOS & macOS
-            Demonstration<Triangle>(maxStep: 8)
+            Demonstration<Triangle>(
+                maxStep: 8,
+                animationMaxStep: 6
+            )
         }
     }
 }

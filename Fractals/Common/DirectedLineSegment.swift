@@ -18,8 +18,8 @@ struct DirectedLineSegment {
     var magnitude: CGFloat { sqrt(dx * dx + dy * dy) }
     var direction: CGFloat { atan2(dy, dx) }
 
-    /// Returns a point extended in the direction rotated counter-clockwise by `angle` with a
-    /// distance `multiple` times the magnitude of this line segment.
+    /// Returns a point extended in the direction rotated clockwise by `angle`
+    /// with a distance `multiple` times the magnitude of this line segment.
     func extended(multiple: CGFloat, angle: CGFloat) -> CGPoint {
         end.centeredConcyclic(
             radius: multiple * magnitude,
